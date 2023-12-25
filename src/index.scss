@@ -1,10 +1,9 @@
 .main {
   margin: 0 auto;
   display: flex;
-  max-width: 1440px;
-  border: 1px solid red;
+  max-width: 900px;
 
-  &-menu{
+  &-menu {
     padding: 10px 20px;
     display: flex;
     flex-direction: column;
@@ -15,8 +14,58 @@
       flex-direction: column;
       gap: 10px;
       width: 100%;
-    }
 
+      &__item:hover {
+        background-color: #3a89f1;
+      }
+    }
+  }
+
+  &-body {
+    padding: 10px;
+    width: 100%;
+    background-color: rgba(97, 218, 251, 0.46);
+
+    &-lists {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      &__input {
+        width: 100%;
+      }
+
+      &-container__item * {
+        width: 100%;
+      }
+
+      &-control {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+
+        &__add {
+          background-color: #1ef800;
+        }
+
+        &__del {
+          background-color: #f5795d;
+        }
+
+        &__edit {
+          background-color: #f5ea38;
+        }
+
+        *:hover {
+          scale: 1.05;
+        }
+      }
+
+      &-control * {
+        width: 100%;
+      }
+
+    }
 
   }
 

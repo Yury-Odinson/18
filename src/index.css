@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 button {
   padding: 10px 5px;
   background-color: #75a8ef;
@@ -21,6 +27,8 @@ button {
   transition: 0.2s;
 }
 
-button:hover {
-  background-color: #3881e8;
+input {
+  padding: 10px;
+  border: none;
+  font-size: 1rem;
 }
