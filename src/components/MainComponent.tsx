@@ -1,7 +1,9 @@
+import {MenuComponent} from "./MenuComponent";
+
 export const MainComponent = () => {
     return (
         <div className="main">
-            <h1>hello</h1>
+            <MenuComponent/>
         </div>
     )
 };
