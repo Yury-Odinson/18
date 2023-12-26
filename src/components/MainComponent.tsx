@@ -14,5 +14,5 @@ export const MainComponent = () => {
                 <BodyComponent/>
             </SourceContext.Provider>
         </div>
-    )
+    );
 };

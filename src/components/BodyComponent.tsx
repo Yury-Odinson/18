@@ -5,5 +5,5 @@ export const BodyComponent = () => {
         <div className="main-body">
             <ListComponent/>
         </div>
-    )
+    );
 };
