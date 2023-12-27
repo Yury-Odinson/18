@@ -1,17 +1,15 @@
 import {ElementsContainerComponent} from "./ElementsContainerComponent";
 import {URLComponent} from "./URLComponent";
 import {useContext} from "react";
-import {SourceContext} from "../tools/store";
+import {SourceValueContext} from "../tools/store";
 
 export const ListComponent = () => {
 
-    const context = useContext(SourceContext);
+    const contextValue = useContext(SourceValueContext);
 
     const setValueContext = (value: string) => {
-        context.setValue(value);
-        // console.log(context.value)
+        contextValue.setValue(value);
     };
-
 
     return (
         <div className="main-body-lists">

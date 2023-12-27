@@ -1,17 +1,20 @@
 import {ElementComponent} from "./ElementComponent";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import {getLocalStorage, SourceDataContext} from "../tools/store";
 import {SourceDataType} from "../tools/types";
-import {sourcesData} from "../tools/store";
 
 export const ElementsContainerComponent = () => {
 
     const [sources, setSources] = useState<SourceDataType[]>([]);
 
-    useEffect(() => {
-        setSources([...sourcesData]);
-    }, [sourcesData]);
+    const contextSources = useContext(SourceDataContext);
 
-    // console.log(sources);
+    useEffect(() => {
+        const data = getLocalStorage();
+        setSources(data);
+        contextSources.setSources(data);
+    }, []);
+
     return (
         <div className="main-body-lists-container">
             {sources.map((e: SourceDataType) => (

@@ -1,20 +1,22 @@
 import {MenuComponent} from "./MenuComponent";
 import {BodyComponent} from "./BodyComponent";
 import {useState} from "react";
-import {SourceContext, sourcesData} from "../tools/store";
+import {SourceDataContext, sourcesData, SourceValueContext} from "../tools/store";
+import {SourceDataType} from "../tools/types";
 
 export const MainComponent = () => {
 
     const [value, setValue] = useState<string>("");
-
-    // console.log(sourcesData);
+    const [sources, setSources] = useState<SourceDataType[]>(sourcesData);
 
     return (
         <div className="main">
-            <SourceContext.Provider value={{value, setValue}}>
-                <MenuComponent/>
-                <BodyComponent/>
-            </SourceContext.Provider>
+            <SourceValueContext.Provider value={{value, setValue}}>
+                <SourceDataContext.Provider value={{sources, setSources}}>
+                    <MenuComponent/>
+                    <BodyComponent/>
+                </SourceDataContext.Provider>
+            </SourceValueContext.Provider>
         </div>
     );
 };
