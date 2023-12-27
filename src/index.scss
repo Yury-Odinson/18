@@ -35,7 +35,16 @@
         width: 100%;
       }
 
+      &-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-height: 200px;
+        overflow-y: scroll;
+      }
+
       &-container__item * {
+        height: 60px;
         width: 100%;
       }
 

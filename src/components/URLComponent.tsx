@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {getLocalStorage, setLocalStorage, SourceContext} from "../tools/store";
+import {setLocalStorage, SourceContext, sourcesData} from "../tools/store";
 import {SourceDataType} from "../tools/types";
 
 export const URLComponent = () => {
@@ -7,12 +7,14 @@ export const URLComponent = () => {
     const context = useContext(SourceContext);
 
     const addSourceItem = () => {
-        const sourcesData = getLocalStorage();
+        // const sourcesData = getLocalStorage();
         const item: SourceDataType = {
             id: Date.now().toString(),
             source: context.value
         };
+
         sourcesData.push(item);
+
         return setLocalStorage(sourcesData);
     };
 

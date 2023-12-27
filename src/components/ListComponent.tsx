@@ -9,7 +9,7 @@ export const ListComponent = () => {
 
     const setValueContext = (value: string) => {
         context.setValue(value);
-        console.log(context.value)
+        // console.log(context.value)
     };
 
 
