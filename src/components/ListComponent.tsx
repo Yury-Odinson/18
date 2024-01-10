@@ -1,7 +1,7 @@
 import {ElementsContainerComponent} from "./ElementsContainerComponent";
 import {URLComponent} from "./URLComponent";
 import {useContext} from "react";
-import {SourceContext} from "../tools/store";
+import {SourceContext} from "../tools/store.old";
 
 export const ListComponent = () => {
 
@@ -9,7 +9,6 @@ export const ListComponent = () => {
 
     const setValueContext = (value: string) => {
         context.setValue(value);
-        // console.log(context.value)
     };
 
 

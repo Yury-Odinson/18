@@ -1,13 +1,9 @@
-import {ContextValue, SourceDataType} from "./types";
-import React from "react";
+import {configureStore} from "@reduxjs/toolkit";
+import {reducer} from "./sources.slice";
 
-export const sourcesData: SourceDataType[] = JSON.parse(localStorage.getItem("sources") || "[]") || [];
-
-export const getLocalStorage = () => JSON.parse(localStorage.getItem("sources") || "[]") || [];
-export const setLocalStorage = (arr: SourceDataType[]) => localStorage.setItem("sources", JSON.stringify(arr));
-
-export const SourceContext = React.createContext<ContextValue>({
-    value: "",
-    setValue: () => {
-    }
+export const store = configureStore({
+    reducer,
+    devTools: true
 });
+
+

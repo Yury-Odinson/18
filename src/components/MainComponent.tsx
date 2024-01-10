@@ -1,13 +1,11 @@
 import {MenuComponent} from "./MenuComponent";
 import {BodyComponent} from "./BodyComponent";
 import {useState} from "react";
-import {SourceContext, sourcesData} from "../tools/store";
+import {SourceContext} from "../tools/store.old";
 
 export const MainComponent = () => {
 
     const [value, setValue] = useState<string>("");
-
-    // console.log(sourcesData);
 
     return (
         <div className="main">
