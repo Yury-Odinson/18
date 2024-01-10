@@ -5,12 +5,12 @@ import {SourceContext} from "../tools/store.old";
 
 export const ListComponent = () => {
 
-    const context = useContext(SourceContext);
+    const contextValue = useContext(SourceContext);
 
     const setValueContext = (value: string) => {
-        context.setValue(value);
-    };
 
+        contextValue.setValue(value);
+    };
 
     return (
         <div className="main-body-lists">
