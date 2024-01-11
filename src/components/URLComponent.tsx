@@ -1,17 +1,15 @@
-import {useContext} from "react";
 import {SourceDataType} from "../tools/types";
 import {store} from "../tools/store";
 import {sourcesSlice} from "../tools/sources.slice";
-import {SourceContext} from "../tools/store.old";
+import {useSelector} from "react-redux";
 
 export const URLComponent = () => {
 
-    const contextValue = useContext(SourceContext);
-
+    const nameSource = useSelector((state: any) => state.name)
     const addSourceItem = () => {
         const item: SourceDataType = {
             id: Date.now().toString(),
-            source: contextValue.value
+            source: nameSource
         };
 
         store.dispatch(sourcesSlice.actions.addSource(item));

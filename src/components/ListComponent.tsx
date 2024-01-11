@@ -1,16 +1,11 @@
 import {ElementsContainerComponent} from "./ElementsContainerComponent";
 import {URLComponent} from "./URLComponent";
-import {useContext} from "react";
-import {SourceContext} from "../tools/store.old";
+import {store} from "../tools/store";
+import {sourceNameSlice} from "../tools/sourceName.slice";
 
 export const ListComponent = () => {
 
-    const contextValue = useContext(SourceContext);
-
-    const setValueContext = (value: string) => {
-
-        contextValue.setValue(value);
-    };
+    const setValueContext = (value: string) => store.dispatch(sourceNameSlice.actions.addName(value));
 
     return (
         <div className="main-body-lists">

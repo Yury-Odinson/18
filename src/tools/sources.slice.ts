@@ -17,4 +17,4 @@ export const sourcesSlice = createSlice({
     }
 });
 
-export const {actions, reducer} = sourcesSlice;
+export const {actions, reducer: sourcesReducer} = sourcesSlice;

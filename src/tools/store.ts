@@ -1,8 +1,12 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {reducer} from "./sources.slice";
+import {sourcesReducer} from "./sources.slice";
+import {nameReducer} from "./sourceName.slice";
 
 export const store = configureStore({
-    reducer,
+    reducer: {
+        sources: sourcesReducer,
+        name: nameReducer
+    },
     devTools: true
 });
 

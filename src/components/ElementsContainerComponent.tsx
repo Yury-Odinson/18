@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 
 export const ElementsContainerComponent = () => {
 
-    const sources = useSelector((state: SourceDataType[]) => state);
+    const sources = useSelector((state: any) => state.sources);
 
     return (
         <div className="main-body-lists-container">
