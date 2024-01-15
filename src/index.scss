@@ -76,6 +76,40 @@
 
     }
 
+    &-info {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      &-row-counter,
+      &-column-counter{
+        display: flex;
+        gap: 10px;
+
+        &__description {
+          padding: 10px 0;
+          align-self: center;
+          width: 80%;
+          background-color: #75a8ef;
+        }
+
+        &__counter {
+          padding: 0;
+          text-align: center;
+          font-size: 1.2rem;
+          font-weight: 700;
+        }
+      }
+
+      &__content {
+        padding: 10px;
+        width: 100%;
+        height: 200px;
+      }
+
+    }
+
   }
 
 
