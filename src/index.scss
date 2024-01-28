@@ -43,6 +43,11 @@
         overflow-y: scroll;
       }
 
+      &-container__item {
+        background-color: #75a8ef;
+        transition: 0.2s;
+      }
+
       &-container__item * {
         height: 60px;
         width: 100%;
@@ -112,5 +117,12 @@
 
   }
 
+}
 
+.sourceItem {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.activeItem {
+  background-color: #1ef800;
 }

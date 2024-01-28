@@ -5,11 +5,19 @@ import {useSelector} from "react-redux";
 
 export const URLComponent = () => {
 
-    const nameSource = useSelector((state: any) => state.name)
+    const nameSource = useSelector((state: any) => state.name);
+    const sources = useSelector((state: any) => state.sources);
+
+    const maxId = sources.reduce((max:any, obj: any) => (obj.id > max ? obj.id : max), 0);
+
+
+    console.log(maxId)
+
     const addSourceItem = () => {
         const item: SourceDataType = {
-            id: Date.now().toString(),
-            source: nameSource
+            id: maxId + 1,
+            source: nameSource,
+            isActive: false
         };
 
         store.dispatch(sourcesSlice.actions.addSource(item));

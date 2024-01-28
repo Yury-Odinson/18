@@ -9,7 +9,7 @@ export const ElementsContainerComponent = () => {
     return (
         <div className="main-body-lists-container">
             {sources.map((e: SourceDataType) => (
-                <ElementComponent source={e.source} key={e.id}/>
+                <ElementComponent source={e.source} id={e.id} key={e.id}/>
             ))}
         </div>
     );
