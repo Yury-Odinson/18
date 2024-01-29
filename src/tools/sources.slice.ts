@@ -30,6 +30,9 @@ export const sourcesSlice = createSlice({
             state.length = 0;
             state.push(...filteredState);
             localStorage.setItem("sources", JSON.stringify(state));
+        },
+        saveSources: (state, action) => {
+            localStorage.setItem("sources", JSON.stringify(state));
         }
     }
 });

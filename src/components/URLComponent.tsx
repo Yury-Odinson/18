@@ -2,8 +2,14 @@ import {SourceDataType} from "../tools/types";
 import {store} from "../tools/store";
 import {sourcesSlice} from "../tools/sources.slice";
 import {useSelector} from "react-redux";
+import {ModalAddSource} from "./ModalAddSource";
+import {useState} from "react";
 
 export const URLComponent = () => {
+
+    const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+
+    const toggleModal = () => setIsModalVisible(!isModalVisible);
 
     const nameSource = useSelector((state: any) => state.name);
     const sources = useSelector((state: any) => state.sources);
@@ -16,6 +22,7 @@ export const URLComponent = () => {
     const addSourceItem = () => {
         const item: SourceDataType = {
             id: maxId + 1,
+            name: "",
             source: nameSource,
             isActive: false
         };
@@ -27,12 +34,14 @@ export const URLComponent = () => {
     return (
         <div className="main-body-lists-control">
             <button className="main-body-lists-control__add" onClick={() => {
-                addSourceItem()
+                // addSourceItem()
+                toggleModal();
             }}>Добавить источник
             </button>
             <button className="main-body-lists-control__del" onClick={() => removeSourceItem()}>Удалить источник
             </button>
             <button className="main-body-lists-control__edit">Изменить источник</button>
+            {isModalVisible && <ModalAddSource toggle={() => toggleModal}/>}
         </div>
     );
 };

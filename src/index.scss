@@ -39,7 +39,7 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        //max-height: 200px;
+        max-height: 200px;
         overflow-y: scroll;
       }
 
@@ -71,7 +71,7 @@
         }
 
         *:hover {
-          scale: 1.05;
+          //scale: 1.05;
         }
       }
 
@@ -117,6 +117,54 @@
 
   }
 
+}
+
+.background-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.7;
+  //cursor: pointer;
+}
+
+.modal {
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  background-color: #61dafb;
+
+  &-label {
+    margin: 10px 0;
+    display: flex;
+    padding: 5px;
+    background-color: #fff;
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+  }
+
+  &-buttons>button {
+    width: 30%
+  }
+  &-buttons>button:first-child {
+    background-color: #f5ea38;
+  }
+  &-buttons>button:last-child {
+    background-color: #1ef800;
+  }
+
+}
+.modal:hover{
+  scale: 1;
 }
 
 .sourceItem {
