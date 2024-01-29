@@ -13,7 +13,6 @@ export const sourcesSlice = createSlice({
         },
         setActive: (state, action) => {
             const selectedId = action.payload.id;
-
             state.forEach((e: SourceDataType) => {
                 if (selectedId === e.id) {
                     e.isActive = !e.isActive;
@@ -21,6 +20,15 @@ export const sourcesSlice = createSlice({
                     e.isActive = false;
                 }
             });
+            localStorage.setItem("sources", JSON.stringify(state));
+        },
+        removeSource: (state, action) => {
+            const selectedId = action.payload.id;
+            const filteredState = state.filter((e: SourceDataType) => {
+                return e.id !== selectedId;
+            })
+            state.length = 0;
+            state.push(...filteredState);
             localStorage.setItem("sources", JSON.stringify(state));
         }
     }

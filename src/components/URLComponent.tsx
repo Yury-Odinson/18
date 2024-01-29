@@ -8,10 +8,10 @@ export const URLComponent = () => {
     const nameSource = useSelector((state: any) => state.name);
     const sources = useSelector((state: any) => state.sources);
 
-    const maxId = sources.reduce((max:any, obj: any) => (obj.id > max ? obj.id : max), 0);
+    const maxId = sources.reduce((max: any, obj: any) => (obj.id > max ? obj.id : max), 0);
 
+    const selectedItem = useSelector((state: any) => state.sources).find((e: SourceDataType) => e.isActive);
 
-    // console.log(maxId)
 
     const addSourceItem = () => {
         const item: SourceDataType = {
@@ -19,10 +19,10 @@ export const URLComponent = () => {
             source: nameSource,
             isActive: false
         };
-
         store.dispatch(sourcesSlice.actions.addSource(item));
-
     };
+
+    const removeSourceItem = () => store.dispatch(sourcesSlice.actions.removeSource(selectedItem));
 
     return (
         <div className="main-body-lists-control">
@@ -30,7 +30,8 @@ export const URLComponent = () => {
                 addSourceItem()
             }}>Добавить источник
             </button>
-            <button className="main-body-lists-control__del">Удалить источник</button>
+            <button className="main-body-lists-control__del" onClick={() => removeSourceItem()}>Удалить источник
+            </button>
             <button className="main-body-lists-control__edit">Изменить источник</button>
         </div>
     );
