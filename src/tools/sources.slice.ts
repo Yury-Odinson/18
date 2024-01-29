@@ -11,8 +11,17 @@ export const sourcesSlice = createSlice({
             state.push(action.payload);
             localStorage.setItem("sources", JSON.stringify(state));
         },
-        remSource: (state, action) => {
-            state.find(action.payload);
+        setActive: (state, action) => {
+            const selectedId = action.payload.id;
+
+            state.forEach((e: SourceDataType) => {
+                if (selectedId === e.id) {
+                    e.isActive = !e.isActive;
+                } else {
+                    e.isActive = false;
+                }
+            });
+            localStorage.setItem("sources", JSON.stringify(state));
         }
     }
 });

@@ -11,7 +11,7 @@ export const URLComponent = () => {
     const maxId = sources.reduce((max:any, obj: any) => (obj.id > max ? obj.id : max), 0);
 
 
-    console.log(maxId)
+    // console.log(maxId)
 
     const addSourceItem = () => {
         const item: SourceDataType = {

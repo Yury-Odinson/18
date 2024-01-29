@@ -1,29 +1,25 @@
 import {useEffect, useState} from "react";
+import {SourceDataType} from "../tools/types";
+import {store} from "../tools/store";
+import {sourcesSlice} from "../tools/sources.slice";
 
-export const ElementComponent = (sourceProps: { source: string, id: string }) => {
+export const ElementComponent = (sourceProps: { item: SourceDataType }) => {
 
-    const [isActive, setIsActive] = useState(false);
-    const [className, setClassName] = useState("");
+    const [isActive, setIsActive] = useState(sourceProps.item.isActive);
 
-    // useEffect(() => {
-    //     if (sourceProps.isActive) {
-    //         setIsActive(true);
-    //     } else {
-    //         setIsActive(false);
-    //     }
-    // }, []);
+    // console.log(sourceProps.item.source);
 
-console.log(sourceProps.source);
-    const handlerActive = () => {
-        setIsActive(!isActive);
-        if (isActive) {
-            setClassName(" activeItem");
-        } else setClassName("");
-    }
+    useEffect(() => {
+        setIsActive(sourceProps.item.isActive);
+    }, [sourceProps.item.isActive]);
+
+    const handlerActive = () => store.dispatch(sourcesSlice.actions.setActive(sourceProps.item));
+
+    const classNames = `main-body-lists-container__item${isActive ? " activeItem" : ""}`;
 
     return (
-        <div className={"main-body-lists-container__item"} id={sourceProps.id} onClick={handlerActive}>
-            <button className="sourceItem">{sourceProps.source}</button>
+        <div className={classNames} id={sourceProps.item.id} onClick={handlerActive}>
+            <button className="sourceItem">{sourceProps.item.source}</button>
         </div>
     );
 };
