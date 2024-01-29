@@ -2,14 +2,14 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const initialState: string = "";
 
-export const sourceNameSlice = createSlice({
-    name: "sourceName",
+export const URLSourceSlice = createSlice({
+    name: "url",
     initialState,
     reducers: {
-        addName: (state, action) => {
+        addURL: (state, action) => {
             return state = action.payload;
         }
     }
 });
 
-export const {actions, reducer: nameReducer} = sourceNameSlice;
+export const {actions, reducer: urlReducer} = URLSourceSlice;

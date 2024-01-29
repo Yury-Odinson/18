@@ -19,7 +19,7 @@ export const ElementComponent = (sourceProps: { item: SourceDataType }) => {
 
     return (
         <div className={classNames} id={sourceProps.item.id} onClick={handlerActive}>
-            <button className="sourceItem">{sourceProps.item.source}</button>
+            <button className="sourceItem">{sourceProps.item.name}</button>
         </div>
     );
 };

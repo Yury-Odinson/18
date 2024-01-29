@@ -1,11 +1,11 @@
 import {ElementsContainerComponent} from "./ElementsContainerComponent";
 import {URLComponent} from "./URLComponent";
 import {store} from "../tools/store";
-import {sourceNameSlice} from "../tools/sourceName.slice";
+import {nameSourceSlice} from "../tools/nameSource.slice";
 
 export const ListComponent = () => {
 
-    const setValueContext = (value: string) => store.dispatch(sourceNameSlice.actions.addName(value));
+    const setValueContext = (value: string) => store.dispatch(nameSourceSlice.actions.addName(value));
 
     return (
         <div className="main-body-lists">
