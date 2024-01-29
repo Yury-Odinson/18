@@ -7,8 +7,6 @@ export const ElementComponent = (sourceProps: { item: SourceDataType }) => {
 
     const [isActive, setIsActive] = useState(sourceProps.item.isActive);
 
-    // console.log(sourceProps.item.source);
-
     useEffect(() => {
         setIsActive(sourceProps.item.isActive);
     }, [sourceProps.item.isActive]);

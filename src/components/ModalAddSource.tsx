@@ -50,6 +50,5 @@ export const ModalAddSource = (modalProps: { toggle: any }) => {
                 </div>
             </div>
         </>
-
     )
 };

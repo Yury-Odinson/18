@@ -88,7 +88,7 @@
       gap: 10px;
 
       &-row-counter,
-      &-column-counter{
+      &-column-counter {
         display: flex;
         gap: 10px;
 
@@ -114,9 +114,7 @@
       }
 
     }
-
   }
-
 }
 
 .background-modal {
@@ -152,18 +150,21 @@
     gap: 10px;
   }
 
-  &-buttons>button {
+  &-buttons > button {
     width: 30%
   }
-  &-buttons>button:first-child {
+
+  &-buttons > button:first-child {
     background-color: #f5ea38;
   }
-  &-buttons>button:last-child {
+
+  &-buttons > button:last-child {
     background-color: #1ef800;
   }
 
 }
-.modal:hover{
+
+.modal:hover {
   scale: 1;
 }
 
