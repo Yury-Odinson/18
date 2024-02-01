@@ -2,14 +2,18 @@ import {SourceDataType} from "../tools/types";
 import {store} from "../tools/store";
 import {sourcesSlice} from "../tools/sources.slice";
 import {useSelector} from "react-redux";
-import {ModalAddSource} from "./ModalAddSource";
+import {Modal} from "./Modal";
 import {useState} from "react";
 
 export const URLComponent = () => {
 
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+    const [typeModal, setTypeModal] = useState<string>("");
 
-    const toggleModal = () => setIsModalVisible(!isModalVisible);
+    const toggleModal = (type: string) => {
+        setIsModalVisible(!isModalVisible);
+        setTypeModal(type);
+    };
     const selectedItem = useSelector((state: any) => state.sources).find((e: SourceDataType) => e.isActive);
 
     const removeSourceItem = () => store.dispatch(sourcesSlice.actions.removeSource(selectedItem));
@@ -17,13 +21,17 @@ export const URLComponent = () => {
     return (
         <div className="main-body-lists-control">
             <button className="main-body-lists-control__add" onClick={() => {
-                toggleModal();
+                toggleModal("add");
             }}>Добавить источник
             </button>
             <button className="main-body-lists-control__del" onClick={() => removeSourceItem()}>Удалить источник
             </button>
-            <button className="main-body-lists-control__edit">Изменить источник</button>
-            {isModalVisible && <ModalAddSource toggle={toggleModal}/>}
+            <button className="main-body-lists-control__edit" onClick={() => {
+                toggleModal("edit");
+            }}>Изменить источник</button>
+            {
+                isModalVisible && <Modal type={typeModal} toggle={toggleModal}/>
+            }
         </div>
     );
 };
