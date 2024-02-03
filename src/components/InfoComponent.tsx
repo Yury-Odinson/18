@@ -8,7 +8,7 @@ export const InfoComponent = () => {
             <h3>Информация</h3>
             <CountRowComponent/>
             <CountColumnComponent/>
-            <JSONComponent data={"some data"}/>
+            <JSONComponent/>
         </div>
     )
 };
